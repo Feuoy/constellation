@@ -1,4 +1,4 @@
-package constellation;
+package sample;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -85,16 +85,16 @@ public class doubleInterface extends Application {
 
     private Stage primaryStageResult = new Stage();
 
-    private String [] constellationPictureList = {"image/shuiping.png", "image/shuangyu.png", "image/baiyang.png",
-            "image/jinniu.png", "image/shuangzi.png", "image/juxie.png",
-            "image/shizi.png", "image/chunv.png", "image/tianping.png",
-            "image/tianxie.png",  "image/sheshou.png",  "image/mojie.png"};
+    private String [] constellationPictureList = {"./sample/image/shuiping.png", "./sample/image/shuangyu.png", "./sample/image/baiyang.png",
+            "./sample/image/jinniu.png", "./sample/image/shuangzi.png", "./sample/image/juxie.png",
+            "./sample/image/shizi.png", "./sample/image/chunv.png", "./sample/image/tianping.png",
+            "./sample/image/tianxie.png",  "./sample/image/sheshou.png",  "./sample/image/mojie.png"};
 
     private String constellationPicture = "";
     private String constellationBoy = "";
     private String constellationGirl = "";
 
-    private Button share = new Button("分享");
+    private Button share = new Button("保存本地");
     private Button tryAgain = new Button("再次查询");
 
     private int times = 0;
@@ -102,7 +102,7 @@ public class doubleInterface extends Application {
 
     public void start(Stage primaryStage) throws Exception {
 
-        pane1.setCenter(new doubleInterface.CustomPane("占星游戏"));
+        pane1.setCenter(new CustomPane("占星游戏"));
 
         Circle circle = new Circle(500, 500, 30);
         circle.setFill(Color.WHITE);
@@ -312,13 +312,14 @@ public class doubleInterface extends Application {
 
 
         BorderPane pane1 = new BorderPane();
-        pane1.setCenter(new doubleResult.CustomPane("匹配结果"));
+//        pane1.setCenter(new doubleResult.CustomPane("匹配结果"));
+        pane1.setCenter(new doubleInterface.CustomPane("匹配结果"));
 
         HBox pane2 = new HBox(10);
         pane2.setPadding(new Insets(5,5,5,5));
 
 
-        Image imageBoy = new Image("image/nan.jpg");
+        Image imageBoy = new Image("./sample/image/nan.jpg");
         ImageView imageViewBoy = new ImageView(imageBoy);
         imageViewBoy.setFitWidth(50);
         imageViewBoy.setFitHeight(50);
@@ -330,10 +331,10 @@ public class doubleInterface extends Application {
         imageView1.setFitHeight(180);
         pane2.getChildren().add(imageView1);
 
-        Image imageAdd = new Image("image/+.jpg");
+        Image imageAdd = new Image("./sample/image/+.jpg");
         pane2.getChildren().add(new ImageView(imageAdd));
 
-        Image imageGirl = new Image("image/nv.jpg");
+        Image imageGirl = new Image("./sample/image/nv.jpg");
         ImageView imageViewGirl = new ImageView(imageGirl);
         imageViewGirl.setFitWidth(50);
         imageViewGirl.setFitHeight(50);
@@ -345,7 +346,7 @@ public class doubleInterface extends Application {
         imageView2.setFitHeight(180);
         pane2.getChildren().add(imageView2);
 
-        Image imageCount = new Image("image/=.jpg");
+        Image imageCount = new Image("./sample/image/=.jpg");
         pane2.getChildren().add(new ImageView(imageCount));
 
 
@@ -389,13 +390,13 @@ public class doubleInterface extends Application {
     }
 
     public void shareDo (HBox pane2) {
-        File file = new File("src/share/share" + times++ + ".png");
+        File file = new File("./src/sample/share/share" + times++ + ".png");
         WritableImage image = pane2.snapshot(new SnapshotParameters(), null);
         try {
             ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);
-            System.out.println("分享截图保存成功");
+            System.out.println("保存成功");
         } catch (IOException ex) {
-            System.out.println("分享截图保存失败");
+            System.out.println("保存失败");
         }
     }
 
