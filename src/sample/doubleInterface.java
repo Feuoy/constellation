@@ -20,38 +20,39 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
 public class doubleInterface extends Application {
 
-    private String [] dateList = {"1", "2", "3", "4",
+    private String[] dateList = {"1", "2", "3", "4",
             "5", "6", "7", "8", "9", "10", "11", "12", "13",
             "14", "15", "16", "17", "18", "19", "20", "21", "22",
             "23", "24", "25", "26", "27", "28", "29", "30", "31"};
 
-    private String [] monthList = {"1", "2", "3", "4",
+    private String[] monthList = {"1", "2", "3", "4",
             "5", "6", "7", "8", "9", "10", "11", "12"};
 
-    private String [] constellationList = {"水瓶座", "双鱼座", "白羊座", "金牛座",
+    private String[] constellationList = {"水瓶座", "双鱼座", "白羊座", "金牛座",
             "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座", "摩羯座"};
 
-    private int [][] keyList = {
-            {87,	60,	72,	41,		91,	58,	78,	64,		96,	51,	82,	69},
-            {69,	88,	71,	78,		46,	93,	61,	65,		74,	99,	54,	82},
-            {88,	79,	90,	75,		82,	47,	94,	65,		85,	70,	99,	58},
-            {66,	81,	68,	88,		72,	75,	45,	97,		57,	78,	61,	93},
+    private int[][] keyList = {
+            {87, 60, 72, 41, 91, 58, 78, 64, 96, 51, 82, 69},
+            {69, 88, 71, 78, 46, 93, 61, 65, 74, 99, 54, 82},
+            {88, 79, 90, 75, 82, 47, 94, 65, 85, 70, 99, 58},
+            {66, 81, 68, 88, 72, 75, 45, 97, 57, 78, 61, 93},
 
-            {99,	48,	79,	76,		89,	71,	81,	57,		93,	69,	86,	64},
-            {74,	97,	52,	82,		78,	89,	61,	84,		66,	92,	70,	87},
-            {84,	62,	97,	56,		79,	69,	87,	72,		81,	45,	92,	77},
-            {55,	84,	61,	91,		76,	88,	66,	89,		49,	81,	72,	95},
+            {99, 48, 79, 76, 89, 71, 81, 57, 93, 69, 86, 64},
+            {74, 97, 52, 82, 78, 89, 61, 84, 66, 92, 70, 87},
+            {84, 62, 97, 56, 79, 69, 87, 72, 81, 45, 92, 77},
+            {55, 84, 61, 91, 76, 88, 66, 89, 49, 81, 72, 95},
 
-            {95,	64,	85,	74,		98,	58,	88,	77,		90,	71,	80,	47},
-            {57,	92,	60,	80,		68,	97,	65,	84,		73,	87,	47,	76},
-            {78,	44,	92,	70,		81,	65,	98,	58,		86,	68,	89,	75},
-            {74,	77,	43,	97,		70,	80,	59,	92,		51,	85,	64,	88} };
+            {95, 64, 85, 74, 98, 58, 88, 77, 90, 71, 80, 47},
+            {57, 92, 60, 80, 68, 97, 65, 84, 73, 87, 47, 76},
+            {78, 44, 92, 70, 81, 65, 98, 58, 86, 68, 89, 75},
+            {74, 77, 43, 97, 70, 80, 59, 92, 51, 85, 64, 88}};
 
     private String getConstellation = "";
     private Label keyConstellation = new Label();
@@ -85,10 +86,10 @@ public class doubleInterface extends Application {
 
     private Stage primaryStageResult = new Stage();
 
-    private String [] constellationPictureList = {"./sample/image/shuiping.png", "./sample/image/shuangyu.png", "./sample/image/baiyang.png",
+    private String[] constellationPictureList = {"./sample/image/shuiping.png", "./sample/image/shuangyu.png", "./sample/image/baiyang.png",
             "./sample/image/jinniu.png", "./sample/image/shuangzi.png", "./sample/image/juxie.png",
             "./sample/image/shizi.png", "./sample/image/chunv.png", "./sample/image/tianping.png",
-            "./sample/image/tianxie.png",  "./sample/image/sheshou.png",  "./sample/image/mojie.png"};
+            "./sample/image/tianxie.png", "./sample/image/sheshou.png", "./sample/image/mojie.png"};
 
     private String constellationPicture = "";
     private String constellationBoy = "";
@@ -173,9 +174,9 @@ public class doubleInterface extends Application {
                 items3.indexOf(cboGirlMonth.getValue()), items4.indexOf(cboGirlDay.getValue())));
 
         finalBoyConstellation.setFont(Font.font("Time New Roman", 20));
-        pane2.add(finalBoyConstellation,11,18);
+        pane2.add(finalBoyConstellation, 11, 18);
         finalGirlConstellation.setFont(Font.font("Time New Roman", 20));
-        pane2.add(finalGirlConstellation,21,18);
+        pane2.add(finalGirlConstellation, 21, 18);
 
 
         Label lblBoyConstellationTitle = new Label("他的星座：");
@@ -236,7 +237,7 @@ public class doubleInterface extends Application {
         cboGirlConstellation.setValue(find(index3, index4));
     }
 
-    public String find (int cboMonth, int cboDay) {
+    public String find(int cboMonth, int cboDay) {
         int month = cboMonth + 1;
         int day = cboDay + 1;
         switch (month) {
@@ -298,11 +299,9 @@ public class doubleInterface extends Application {
         keyConstellation.setFont(Font.font("Time New Roman", 20));
     }
 
-    public String findKey (int boy, int girl) {
+    public String findKey(int boy, int girl) {
         return keyList[boy][girl] + "";
     }
-
-
 
 
     public void startResult(Stage primaryStageResult) throws Exception {
@@ -316,7 +315,7 @@ public class doubleInterface extends Application {
         pane1.setCenter(new doubleInterface.CustomPane("匹配结果"));
 
         HBox pane2 = new HBox(10);
-        pane2.setPadding(new Insets(5,5,5,5));
+        pane2.setPadding(new Insets(5, 5, 5, 5));
 
 
         Image imageBoy = new Image("./sample/image/nan.jpg");
@@ -375,7 +374,7 @@ public class doubleInterface extends Application {
         pane.setSpacing(100);
         pane.getChildren().addAll(pane1, pane2, pane3);
 
-        Scene scene  = new Scene(pane, 1100, 700);
+        Scene scene = new Scene(pane, 1100, 700);
         primaryStageResult.setTitle("占星游戏");
         primaryStageResult.setScene(scene);
         primaryStageResult.show();
@@ -389,7 +388,7 @@ public class doubleInterface extends Application {
         }
     }
 
-    public void shareDo (HBox pane2) {
+    public void shareDo(HBox pane2) {
         File file = new File("./src/sample/share/share" + times++ + ".png");
         WritableImage image = pane2.snapshot(new SnapshotParameters(), null);
         try {
@@ -401,20 +400,44 @@ public class doubleInterface extends Application {
     }
 
 
-    public String change (int constellationNumber) {
+    public String change(int constellationNumber) {
         switch (constellationNumber) {
-            case 0: constellationPicture = constellationPictureList[0];    break;
-            case 1: constellationPicture = constellationPictureList[1];    break;
-            case 2: constellationPicture = constellationPictureList[2];    break;
-            case 3: constellationPicture = constellationPictureList[3];    break;
-            case 4: constellationPicture = constellationPictureList[4];    break;
-            case 5: constellationPicture = constellationPictureList[5];    break;
-            case 6: constellationPicture = constellationPictureList[6];    break;
-            case 7: constellationPicture = constellationPictureList[7];    break;
-            case 8: constellationPicture = constellationPictureList[8];    break;
-            case 9: constellationPicture = constellationPictureList[9];    break;
-            case 10: constellationPicture = constellationPictureList[10];    break;
-            case 11: constellationPicture = constellationPictureList[11];    break;
+            case 0:
+                constellationPicture = constellationPictureList[0];
+                break;
+            case 1:
+                constellationPicture = constellationPictureList[1];
+                break;
+            case 2:
+                constellationPicture = constellationPictureList[2];
+                break;
+            case 3:
+                constellationPicture = constellationPictureList[3];
+                break;
+            case 4:
+                constellationPicture = constellationPictureList[4];
+                break;
+            case 5:
+                constellationPicture = constellationPictureList[5];
+                break;
+            case 6:
+                constellationPicture = constellationPictureList[6];
+                break;
+            case 7:
+                constellationPicture = constellationPictureList[7];
+                break;
+            case 8:
+                constellationPicture = constellationPictureList[8];
+                break;
+            case 9:
+                constellationPicture = constellationPictureList[9];
+                break;
+            case 10:
+                constellationPicture = constellationPictureList[10];
+                break;
+            case 11:
+                constellationPicture = constellationPictureList[11];
+                break;
         }
         return constellationPicture;
     }
